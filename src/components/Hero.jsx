@@ -90,7 +90,7 @@ function UploadZone() {
         <path d="M35 5 C10 10, 5 30, 8 55" stroke="#1A1A2E" strokeWidth="2" strokeDasharray="4 4" strokeLinecap="round" />
         <path d="M3 50 L8 57 L14 50" stroke="#1A1A2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-      <svg
+      {/* <svg
         className="absolute -top-5 left-1/2 -translate-x-[60%] opacity-45 animate-[wiggle_3s_ease-in-out_infinite_0.5s]"
         width="80"
         height="35"
@@ -99,10 +99,10 @@ function UploadZone() {
       >
         <path d="M5 5 C30 3, 60 8, 72 30" stroke="#1A1A2E" strokeWidth="2" strokeDasharray="4 4" strokeLinecap="round" />
         <path d="M66 32 L73 28 L76 35" stroke="#1A1A2E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
+      </svg> */}
 
       {/* Scribble labels */}
-      <span className="absolute -top-4 left-8 -rotate-[5deg] font-[Architects_Daughter] text-xs text-slate-500 opacity-70 pointer-events-none">
+      <span className="absolute -top-6 left-8 -rotate-[5deg] font-[Architects_Daughter] text-xs text-slate-500 opacity-70 pointer-events-none">
         Drop 'em here! ↓
       </span>
       <span className="absolute -bottom-4 right-10 rotate-[3deg] font-[Architects_Daughter] text-xs text-slate-500 opacity-70 pointer-events-none">

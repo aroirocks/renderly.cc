@@ -549,19 +549,19 @@ export default function UploadPage() {
                   <p className="text-sm text-slate-500">
                     1280×720 · 16:9 · YouTube-ready · AI-optimised for CTR
                   </p>
-                  <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
+                  <div className="flex flex-wrap justify-center gap-3">
                     <a
                       href={resultUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 rounded-full bg-red-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/20 hover:bg-red-600"
+                      className="inline-flex items-center gap-2 rounded-full bg-red-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/20 hover:bg-red-600"
                     >
                       <DownloadIcon />
                       Download Thumbnail
                     </a>
                     <button
                       onClick={handleReset}
-                      className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-7 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                      className="inline-flex items-center rounded-full border border-slate-200 bg-white px-7 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50"
                     >
                       Generate Another
                     </button>
