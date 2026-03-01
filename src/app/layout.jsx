@@ -10,7 +10,12 @@ export const metadata = {
     'Upload up to 2 images and let AI generate a YouTube-ready thumbnail. Automatic sizing, image enhancement, and high-quality output in seconds.',
   keywords:
     'youtube thumbnail maker, ai youtube thumbnail maker, thumbnail maker for youtube, create youtube thumbnail from image, youtube thumbnail size, youtube thumbnail generator',
-  openGraph: {
+  
+  verification: {
+    google: 's8nOpX2Lh-0IProujKHhhRc-Kb5OH6eDPKWcaJU1-28',
+  },
+
+    openGraph: {
     title: 'AI YouTube Thumbnail Maker – Create Thumbnails from Images',
     description:
       'Upload up to 2 images and let AI generate a YouTube-ready thumbnail. Automatic sizing, image enhancement, and high-quality output in seconds.',
