@@ -376,6 +376,25 @@ export default function UploadPage() {
     setErrorMsg('')
   }
 
+  const handleDownload = async () => {
+  try {
+    const res = await fetch(resultUrl)
+    const blob = await res.blob()
+
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'youtube-thumbnail.png'
+    document.body.appendChild(a)
+    a.click()
+
+    a.remove()
+    URL.revokeObjectURL(url)
+  } catch (e) {
+    console.error('Download failed', e)
+  }
+}
+
   const isProcessing = status === 'uploading' || status === 'queued' || status === 'processing'
   const hasFiles = files.length > 0
 
@@ -550,15 +569,13 @@ export default function UploadPage() {
                     1280×720 · 16:9 · YouTube-ready · AI-optimised for CTR
                   </p>
                   <div className="flex flex-wrap justify-center gap-3">
-                    <a
-                      href={resultUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-red-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/20 hover:bg-red-600"
-                    >
+                   <button
+                    onClick={handleDownload}
+                    className="inline-flex items-center gap-2 rounded-full bg-red-500 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-red-500/20 hover:bg-red-600"
+                  >
                       <DownloadIcon />
                       Download Thumbnail
-                    </a>
+                    </button>
                     <button
                       onClick={handleReset}
                       className="inline-flex items-center rounded-full border border-slate-200 bg-white px-7 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50"

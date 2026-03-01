@@ -1,6 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const rand = (min, max) => Math.random() * (max - min) + min
 
@@ -77,8 +81,14 @@ function PlayCircle() {
 // ─── Upload Zone ─────────────────────────────────────────────────────────────
 
 function UploadZone() {
+
   return (
-    <div className="relative w-full max-w-[560px]">
+        <Link
+      href="/ai-youtube-thumbnail-maker"
+      className="relative w-full max-w-[560px] block"
+      aria-label="Go to thumbnail generator"
+    >
+    <div className="relative w-full max-w-[560px]"    >
       {/* Doodle arrows */}
       <svg
         className="absolute -left-8 top-1/2 -translate-y-1/2 opacity-50 animate-[wiggle_2.5s_ease-in-out_infinite]"
@@ -214,6 +224,7 @@ function UploadZone() {
 
       </div>
     </div>
+    </Link>
   )
 }
 
