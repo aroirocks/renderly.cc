@@ -84,6 +84,11 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-M8FX1T1R6T');
           `}
         </Script>
+        {/* ContentSquare */}
+        <Script
+          src="https://t.contentsquare.net/uxa/1b478e152a6a3.js"
+          strategy="afterInteractive"
+        />
 
         {/* Schema.org */}
         <script
