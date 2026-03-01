@@ -1,5 +1,6 @@
 import { Inter, Lexend } from 'next/font/google'
 import clsx from 'clsx'
+import Script from 'next/script'
 
 import '@/styles/tailwind.css'
 
@@ -65,6 +66,21 @@ export default function RootLayout({ children }) {
       )}
     >
       <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-M8FX1T1R6T"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-M8FX1T1R6T');
+          `}
+        </Script>
+
+        {/* Schema.org */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
