@@ -30,11 +30,13 @@ export function Footer() {
           <RenderlyLogo />
 
           <nav className="mt-10 text-sm" aria-label="quick links">
-            <div className="-my-1 flex justify-center gap-x-6">
+            <div className="-my-1 flex flex-wrap justify-center gap-x-6 gap-y-2">
               <NavLink href="#how-it-works">How it works</NavLink>
               <NavLink href="#ai-features">Features</NavLink>
               <NavLink href="#use-cases">Use cases</NavLink>
               <NavLink href="#faq">FAQ</NavLink>
+              <NavLink href="/blog">Blog</NavLink>
+              <NavLink href="/passport-photo-maker">Passport Photo</NavLink>
             </div>
           </nav>
         </div>

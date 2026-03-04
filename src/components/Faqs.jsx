@@ -14,6 +14,11 @@ const faqs = [
       question: 'How many images can I upload?',
       answer: 'You can upload up to 2 images per thumbnail.',
     },
+    {
+      question: 'Is there a free passport photo maker online?',
+      answer:
+        'Yes — the Renderly passport size photo maker is completely free. Upload any photo, select your country, and get a biometric passport photo in seconds. No account needed.',
+    },
   ],
   [
     {
@@ -26,12 +31,22 @@ const faqs = [
       answer:
         '1280×720 pixels — the resolution recommended by YouTube for all video thumbnails.',
     },
+    {
+      question: 'Can I convert any picture to passport size?',
+      answer:
+        'Yes. The image to passport size converter accepts selfies, casual photos, or any portrait shot. AI automatically removes the background, centres your face, and outputs the correct dimensions for your country.',
+    },
   ],
   [
     {
       question: 'Can I use it for YouTube Shorts?',
       answer:
         'Yes, thumbnails work for both regular videos and Shorts on YouTube.',
+    },
+    {
+      question: 'Can I print passport photos on A4 or 4×6 sheets?',
+      answer:
+        'Yes. After generating your passport photo, download a print-ready A4 sheet with 8 copies, or a 4×6 passport photo sheet with 4 copies. Cut guides are included so you can trim each photo at home.',
     },
   ],
 ]

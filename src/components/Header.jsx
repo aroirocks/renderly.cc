@@ -71,6 +71,7 @@ function MobileNavigation() {
         <MobileNavLink href="#use-cases">Use cases</MobileNavLink>
         <MobileNavLink href="#faq">FAQ</MobileNavLink>
         <MobileNavLink href="/blog">Blog</MobileNavLink>
+        <MobileNavLink href="/passport-photo-maker">🪪 Passport Photo</MobileNavLink>
         <hr className="m-2 border-slate-300/40" />
         <span className="block w-full cursor-not-allowed p-2 text-slate-400">
           Sign in

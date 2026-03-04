@@ -626,7 +626,7 @@ export default function UploadPage() {
                   <label className="mb-1.5 block text-sm font-medium text-slate-700">
                     Video title or topic{' '}
                     <span className="font-normal text-slate-400">
-                      (optional — helps AI nail the composition)
+                      (this helps AI nail the composition)
                     </span>
                   </label>
                   <input

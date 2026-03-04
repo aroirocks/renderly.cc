@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Hero } from '@/components/Hero'
 import { Limitations } from '@/components/Limitations'
+import { MoreAITools } from '@/components/MoreAITools'
 import { Pricing } from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
@@ -26,6 +27,7 @@ export default function Home() {
         <Pricing />
         <Limitations />
         <ThumbnailTips />
+        <MoreAITools />
         <Faqs />
         <FinalCTA />
       </main>
