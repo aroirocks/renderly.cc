@@ -24,6 +24,12 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${BASE}/passport-photo-maker`,
+      lastModified: new Date('2026-03-04'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${BASE}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
