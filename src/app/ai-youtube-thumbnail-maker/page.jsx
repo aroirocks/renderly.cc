@@ -104,6 +104,88 @@ function FileSlot({ file, index, onRemove }) {
   )
 }
 
+// ── Processing image overlay ──────────────────────────────────────────────────
+
+function ShimmerOverlay({ delay = 0 }) {
+  return (
+    <div
+      className="absolute inset-0 rounded-xl"
+      style={{
+        background:
+          'linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.32) 50%, transparent 65%)',
+        backgroundSize: '200% 100%',
+        animation: `shimmer 1.8s ${delay}s infinite linear`,
+      }}
+    />
+  )
+}
+
+function ImageOverlay({ previews }) {
+  if (!previews || previews.length === 0) return null
+
+  const isSingle = previews.length === 1
+  const badgeText = isSingle ? 'AI is working on your image…' : 'AI is combining your images…'
+
+  return (
+    <div className="mb-6">
+      {isSingle ? (
+        /* Single image — contain full image, no cropping */
+        <div className="relative inline-flex w-full justify-center">
+          <div className="relative rounded-xl overflow-hidden border border-slate-200 shadow-sm" style={{ maxWidth: '320px' }}>
+            <img
+              src={previews[0]}
+              alt=""
+              className="block w-full h-auto rounded-xl"
+            />
+            <ShimmerOverlay />
+            <div
+              className="absolute inset-0 rounded-xl"
+              style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.04) 60%, rgba(0,0,0,0.36) 100%)' }}
+            />
+            <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-900/80 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm whitespace-nowrap">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-400" style={{ animation: 'pulse 1s infinite' }} />
+                {badgeText}
+              </span>
+            </div>
+          </div>
+        </div>
+      ) : (
+        /* Two images side by side — each fully visible, no cropping */
+        <div className="flex flex-col items-center gap-3">
+          <div className="grid grid-cols-2 gap-3 w-full max-w-sm">
+            {previews.map((src, i) => (
+              <div key={i} className="relative rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+                <img
+                  src={src}
+                  alt=""
+                  className="block w-full h-auto rounded-xl"
+                />
+                <ShimmerOverlay delay={i * 0.4} />
+                <div
+                  className="absolute inset-0 rounded-xl"
+                  style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.04) 60%, rgba(0,0,0,0.32) 100%)' }}
+                />
+              </div>
+            ))}
+          </div>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-900/80 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm whitespace-nowrap">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-red-400" style={{ animation: 'pulse 1s infinite' }} />
+            {badgeText}
+          </span>
+        </div>
+      )}
+
+      <style>{`
+        @keyframes shimmer {
+          0%   { background-position: -200% 0; }
+          100% { background-position:  200% 0; }
+        }
+      `}</style>
+    </div>
+  )
+}
+
 // ── Processing steps ──────────────────────────────────────────────────────────
 
 const PROCESS_STEPS = [
@@ -134,7 +216,7 @@ const THUMBNAIL_TIPS = [
   { emoji: '🚀', tip: 'The first 48 hours of a video are critical — a strong thumbnail maximises early momentum.' },
 ]
 
-function ProcessingView({ phase }) {
+function ProcessingView({ phase, previews }) {
   const doneCount = PHASE_DONE_COUNT[phase] ?? 1
   const activeIndex = doneCount
 
@@ -172,6 +254,11 @@ function ProcessingView({ phase }) {
 
   return (
     <div className="flex flex-col items-center gap-8 py-12">
+
+      {/* ── Uploaded image overlay ── */}
+      <div className="w-full">
+        <ImageOverlay previews={previews} />
+      </div>
 
       {/* Animated icon */}
       <div className="relative flex h-24 w-24 items-center justify-center">
@@ -268,6 +355,7 @@ function ProcessingView({ phase }) {
 
 export default function UploadPage() {
   const [files, setFiles] = useState([])
+  const [previews, setPreviews] = useState([]) // object URLs for processing overlay
   const [text, setText] = useState('')
   // 'idle' | 'uploading' | 'queued' | 'processing' | 'done' | 'error'
   const [status, setStatus] = useState('idle')
@@ -277,6 +365,8 @@ export default function UploadPage() {
 
   const pollRef = useRef(null)
   const fileInputRef = useRef(null)
+  // Track whether processing is finished so the beforeunload handler knows
+  const processingDoneRef = useRef(false)
 
   const stopPolling = useCallback(() => {
     if (pollRef.current) {
@@ -287,6 +377,29 @@ export default function UploadPage() {
 
   useEffect(() => () => stopPolling(), [stopPolling])
 
+  // ── Tab-close / navigation alert ─────────────────────────────────────────
+  useEffect(() => {
+    const handleBeforeUnload = (e) => {
+      if (status === 'uploading' || status === 'queued' || status === 'processing') {
+        // Standard browser "are you sure?" prompt while processing
+        e.preventDefault()
+        e.returnValue = 'Your thumbnail is still being generated. Are you sure you want to leave?'
+        return e.returnValue
+      }
+      if (status === 'done') {
+        // Custom alert after processing is complete
+        // Note: browsers don't allow custom messages in beforeunload anymore,
+        // so we use a visually distinct message via returnValue where supported.
+        e.preventDefault()
+        e.returnValue = '✅ Your thumbnail is ready! Make sure to download it before leaving.'
+        return e.returnValue
+      }
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload)
+  }, [status])
+
   const pollTask = useCallback(
     async (id) => {
       try {
@@ -295,6 +408,7 @@ export default function UploadPage() {
         const data = await res.json()
         if (data.status === 'done') {
           stopPolling()
+          processingDoneRef.current = true
           setResultUrl(data.preview_url)
           setStatus('done')
         } else if (data.status === 'failed') {
@@ -335,6 +449,12 @@ export default function UploadPage() {
 
   const handleGenerate = async () => {
     if (files.length === 0) return
+
+    // Snapshot object URLs for the processing overlay before upload starts
+    const snapshotUrls = files.map((f) => URL.createObjectURL(f))
+    setPreviews(snapshotUrls)
+
+    processingDoneRef.current = false
     setStatus('uploading')
     setErrorMsg('')
 
@@ -364,36 +484,43 @@ export default function UploadPage() {
     } catch (err) {
       setErrorMsg(err.message || 'Upload failed. Please try again.')
       setStatus('error')
+      // Revoke preview URLs on error
+      snapshotUrls.forEach((u) => URL.revokeObjectURL(u))
+      setPreviews([])
     }
   }
 
   const handleReset = () => {
     stopPolling()
+    // Revoke preview object URLs
+    previews.forEach((u) => URL.revokeObjectURL(u))
+    setPreviews([])
     setFiles([])
     setText('')
     setStatus('idle')
     setResultUrl(null)
     setErrorMsg('')
+    processingDoneRef.current = false
   }
 
   const handleDownload = async () => {
-  try {
-    const res = await fetch(resultUrl)
-    const blob = await res.blob()
+    try {
+      const res = await fetch(resultUrl)
+      const blob = await res.blob()
 
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'youtube-thumbnail.png'
-    document.body.appendChild(a)
-    a.click()
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = 'youtube-thumbnail.png'
+      document.body.appendChild(a)
+      a.click()
 
-    a.remove()
-    URL.revokeObjectURL(url)
-  } catch (e) {
-    console.error('Download failed', e)
+      a.remove()
+      URL.revokeObjectURL(url)
+    } catch (e) {
+      console.error('Download failed', e)
+    }
   }
-}
 
   const isProcessing = status === 'uploading' || status === 'queued' || status === 'processing'
   const hasFiles = files.length > 0
@@ -534,7 +661,7 @@ export default function UploadPage() {
             )}
 
             {/* ── PROCESSING ─────────────────────────────────────────────── */}
-            {isProcessing && <ProcessingView phase={status} />}
+            {isProcessing && <ProcessingView phase={status} previews={previews} />}
 
             {/* ── ERROR ──────────────────────────────────────────────────── */}
             {status === 'error' && (
