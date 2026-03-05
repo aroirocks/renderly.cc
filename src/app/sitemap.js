@@ -30,6 +30,36 @@ export default function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${BASE}/remove-background`,
+      lastModified: new Date('2026-03-05'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE}/make-image-transparent`,
+      lastModified: new Date('2026-03-05'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE}/remove-logo-background`,
+      lastModified: new Date('2026-03-05'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE}/signature-background-remover`,
+      lastModified: new Date('2026-03-05'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE}/passport-photo-background-remover`,
+      lastModified: new Date('2026-03-05'),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
       url: `${BASE}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
