@@ -165,17 +165,18 @@ export default async function BlogPost({ params }) {
             {/* Bottom CTA */}
             <div className="mt-12 border-t border-slate-100 pt-10 text-center">
               <p className="font-display text-2xl text-slate-900">
-                Try the free YouTube thumbnail maker
+                {post.toolHref ? 'Try the free tool — no sign-up needed' : 'Try the free YouTube thumbnail maker'}
               </p>
               <p className="mt-2 text-slate-500">
-                Upload your images and get a click-ready 1280×720 thumbnail in
-                about a minute. No sign-up, no watermark.
+                {post.toolHref
+                  ? 'Upload your image and get a clean result in under a minute. No account, no watermark.'
+                  : 'Upload your images and get a click-ready 1280×720 thumbnail in about a minute. No sign-up, no watermark.'}
               </p>
               <Link
-                href="/ai-youtube-thumbnail-maker"
+                href={post.toolHref ?? '/ai-youtube-thumbnail-maker'}
                 className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-red-500/20 hover:bg-red-600 sm:w-auto"
               >
-                Create my thumbnail free
+                {post.toolCtaLabel ?? 'Create my thumbnail free'}
                 <svg
                   width="16"
                   height="16"
@@ -208,7 +209,7 @@ export default async function BlogPost({ params }) {
                     className="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
                   >
                     <div
-                      className={`mb-3 h-1 w-10 rounded-full bg-gradient-to-r ${p.accent}`}
+                      className={`mb-3 h-1 w-10 rounded-full bg-linear-to-r ${p.accent}`}
                     />
                     <h3 className="font-display text-base leading-snug text-slate-900 group-hover:text-red-600 transition-colors">
                       {p.title}
