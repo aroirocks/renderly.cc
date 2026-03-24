@@ -4,6 +4,7 @@ import { useState, useRef, useCallback, useEffect } from 'react'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { FeedbackWidget, sendFeedback } from '@/components/FeedbackWidget'
 
 const API_BASE = 'https://satisfied-growth-production-5050.up.railway.app'
 const POLL_MS = 2500
@@ -330,7 +331,7 @@ function ProcessingView({ phase, previewUrl }) {
 
 // ── Result + sheet download ───────────────────────────────────────────────────
 
-function ResultView({ resultUrl, onReset }) {
+function ResultView({ resultUrl, taskId, onReset }) {
   const [downloading, setDownloading] = useState(null)
 
   const handleDownloadPhoto = async () => {
@@ -345,6 +346,7 @@ function ResultView({ resultUrl, onReset }) {
       a.click()
       a.remove()
       URL.revokeObjectURL(url)
+      sendFeedback({ feature: 'passport-photo-maker', task_id: taskId, downloaded: true })
     } catch (e) {
       console.error('Download failed', e)
     }
@@ -354,6 +356,7 @@ function ResultView({ resultUrl, onReset }) {
     setDownloading(layout.id)
     try {
       await downloadSheet(resultUrl, layout)
+      sendFeedback({ feature: 'passport-photo-maker', task_id: taskId, downloaded: true })
     } catch (e) {
       console.error('Sheet generation failed', e)
     } finally {
@@ -434,6 +437,8 @@ function ResultView({ resultUrl, onReset }) {
         </p>
       </div>
 
+      <FeedbackWidget feature="passport-photo-maker" taskId={taskId} />
+
       {/* Make another */}
       <div className="text-center">
         <button
@@ -455,6 +460,7 @@ export function PassportPageClient() {
   const [country, setCountry] = useState('us')
   const [status, setStatus] = useState('idle')
   const [resultUrl, setResultUrl] = useState(null)
+  const [taskId, setTaskId] = useState(null)
   const [errorMsg, setErrorMsg] = useState('')
   const [isDragOver, setIsDragOver] = useState(false)
 
@@ -568,6 +574,7 @@ export function PassportPageClient() {
       const id = data.task_id
       if (!id) throw new Error('No task ID returned from server.')
 
+      setTaskId(id)
       setStatus('processing')
       pollRef.current = setInterval(() => pollTask(id), POLL_MS)
     } catch (err) {
@@ -584,6 +591,7 @@ export function PassportPageClient() {
     setCountry('us')
     setStatus('idle')
     setResultUrl(null)
+    setTaskId(null)
     setErrorMsg('')
   }
 
@@ -754,7 +762,7 @@ export function PassportPageClient() {
 
             {/* ── DONE ────────────────────────────────────────────────────── */}
             {status === 'done' && resultUrl && (
-              <ResultView resultUrl={resultUrl} onReset={handleReset} />
+              <ResultView resultUrl={resultUrl} taskId={taskId} onReset={handleReset} />
             )}
           </div>
 

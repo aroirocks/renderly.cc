@@ -5,6 +5,7 @@ import { useState, useRef, useCallback, useEffect } from 'react'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
+import { FeedbackWidget, sendFeedback } from '@/components/FeedbackWidget'
 
 const API_BASE = 'https://satisfied-growth-production-5050.up.railway.app'
 const POLL_MS = 2500
@@ -360,6 +361,7 @@ export default function UploadPage() {
   // 'idle' | 'uploading' | 'queued' | 'processing' | 'done' | 'error'
   const [status, setStatus] = useState('idle')
   const [resultUrl, setResultUrl] = useState(null)
+  const [taskId, setTaskId] = useState(null)
   const [errorMsg, setErrorMsg] = useState('')
   const [isDragOver, setIsDragOver] = useState(false)
 
@@ -479,6 +481,7 @@ export default function UploadPage() {
       const id = data.task_id
       if (!id) throw new Error('No task ID returned from server.')
 
+      setTaskId(id)
       setStatus('processing')
       pollRef.current = setInterval(() => pollTask(id), POLL_MS)
     } catch (err) {
@@ -499,6 +502,7 @@ export default function UploadPage() {
     setText('')
     setStatus('idle')
     setResultUrl(null)
+    setTaskId(null)
     setErrorMsg('')
     processingDoneRef.current = false
   }
@@ -517,6 +521,7 @@ export default function UploadPage() {
 
       a.remove()
       URL.revokeObjectURL(url)
+      sendFeedback({ feature: 'ai-youtube-thumbnail-maker', task_id: taskId, downloaded: true })
     } catch (e) {
       console.error('Download failed', e)
     }
@@ -723,6 +728,8 @@ export default function UploadPage() {
                     a 2–4× improvement in click-through rate within 48 hours.
                   </p>
                 </div>
+
+                <FeedbackWidget feature="ai-youtube-thumbnail-maker" taskId={taskId} />
               </div>
             )}
           </div>
