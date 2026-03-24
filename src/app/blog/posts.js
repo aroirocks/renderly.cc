@@ -1141,4 +1141,326 @@ export const posts = [
       },
     ],
   },
+  {
+    slug: 'how-to-remove-background-from-image',
+    title: 'How to Remove a Background from Any Image in Seconds',
+    date: '2026-03-24',
+    readTime: '4 min read',
+    excerpt:
+      "Manual background removal looks easy until you hit the hair. AI background removers skip the tedious masking entirely — and the results are often cleaner than what you'd do by hand.",
+    accent: 'from-violet-500 to-purple-600',
+    toolHref: '/remove-background',
+    toolCtaLabel: 'Remove background free — no sign-up',
+    content: [
+      {
+        type: 'p',
+        text: "Most people's first attempt at removing a background goes like this: grab the magic eraser or the quick selection tool, drag it around the subject, and it looks fine at 50% zoom. Then you zoom in. There are fringe pixels everywhere — a white halo along the arm, chunks of background stuck in the hair, soft edges that look like the subject is slightly dissolving into nothing. Fixing that properly takes longer than everything else in the edit combined.",
+      },
+      {
+        type: 'p',
+        text: "AI background removal skips the whole manual tracing step. Instead of detecting edges pixel by pixel, it identifies what the subject is — a person, a product, an animal — and separates it from everything else. That difference in approach is what makes the results so much cleaner, especially on the hard stuff.",
+      },
+      {
+        type: 'h2',
+        text: 'Hair is where manual tools always lose',
+      },
+      {
+        type: 'p',
+        text: "Hair is the hardest thing to cut out manually. Individual strands, fly-aways, soft edges where the hair blends into a bright background — you either cut them off and the person looks weirdly helmet-headed, or you try to include them and spend an hour on the refine edge tool. Even then it usually looks off.",
+      },
+      {
+        type: 'p',
+        text: "AI handles it well because it has seen millions of portraits and learned where hair typically ends and background begins. It doesn't need to find a hard edge — it looks at the full context of the image. The result isn't perfect every single time, but it's consistently better than a quick manual selection, and it takes about 30 seconds instead of 30 minutes.",
+      },
+      {
+        type: 'h2',
+        text: 'Portraits vs product photos — different problems, same tool',
+      },
+      {
+        type: 'p',
+        text: "For portraits, the main challenge is those soft, complex edges — hair, earrings, glasses frames, sometimes a fuzzy sweater. The AI handles these well because people are extremely common training data.",
+      },
+      {
+        type: 'p',
+        text: "Product photos are usually easier — the edges are cleaner, the background is often a controlled studio white. But products on messy or real-world backgrounds (a laptop on a wooden desk, shoes on pavement) work fine too. The AI picks up the product shape and separates it cleanly.",
+      },
+      {
+        type: 'p',
+        text: "Animals are somewhere in between. Smooth-coated dogs and cats are easy. A long-haired golden retriever or a fluffy cat is harder — same issue as hair on people, but more of it. It usually still beats doing it manually, though.",
+      },
+      {
+        type: 'cta',
+        text: 'Try it on your image — free, no account needed',
+        href: '/remove-background',
+      },
+      {
+        type: 'h2',
+        text: "When AI background removal doesn't work well",
+      },
+      {
+        type: 'p',
+        text: "There are cases where the result needs a touch-up. If the subject and background are close in colour — a white shirt against a pale wall, dark hair in a dark room — the AI sometimes clips the wrong thing. Same with very busy backgrounds where there's no obvious subject/background separation.",
+      },
+      {
+        type: 'p',
+        text: "Glass and transparent objects are tricky too. A wine glass, a clear bottle, a window — the AI often just removes the whole thing rather than preserve the partial transparency. For those, you're better off with a manual mask.",
+      },
+      {
+        type: 'p',
+        text: "For the common cases — portraits, product shots, logos, animals on a reasonably distinct background — AI removal is fast, clean, and good enough to use directly. No touch-up needed.",
+      },
+      {
+        type: 'h2',
+        text: 'What actually determines result quality',
+      },
+      {
+        type: 'p',
+        text: "The AI can only work with what's in the photo. Blurry images, bad lighting, or a subject that barely contrasts with the background will give you a mediocre result — not because the tool is bad, but because there isn't enough information to work with. A sharp, well-lit photo with decent separation from the background will come out clean almost every time.",
+      },
+      {
+        type: 'cta',
+        text: 'Remove background from your image — free, instant download',
+        href: '/remove-background',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-make-image-transparent',
+    title: 'The White Box Problem: How to Make an Image Transparent',
+    date: '2026-03-24',
+    readTime: '4 min read',
+    excerpt:
+      "You place a logo on a dark background and a white rectangle appears around it. That's not a bug — it's a format problem. Here's what's happening and how to fix it permanently.",
+    accent: 'from-teal-500 to-cyan-500',
+    toolHref: '/make-image-transparent',
+    toolCtaLabel: 'Make image transparent free',
+    content: [
+      {
+        type: 'p',
+        text: "You put a logo on a dark header and a white box shows up around it. You add a graphic to a coloured slide and it's sitting in a white rectangle. You paste a sticker into a photo and it looks like it was cut from a magazine. All three are the same problem: the image has a background baked in, and that background is now colliding with whatever it's sitting on.",
+      },
+      {
+        type: 'p',
+        text: "Fixing it means making the image transparent — stripping the background so only the actual content remains. Once you have a transparent version, you can drop it on any background and it just fits. No box, no halo, no clash.",
+      },
+      {
+        type: 'h2',
+        text: 'Why the white box happens (and why JPG is almost always the culprit)',
+      },
+      {
+        type: 'p',
+        text: "JPG doesn't support transparency. It's not a setting you can turn on — the format just doesn't have a transparency channel. Every JPG has a background, even if that background is white and you can't see it on a white page. The moment you put it somewhere else, the background shows.",
+      },
+      {
+        type: 'p',
+        text: "Most logos, icons, and graphics you download from the internet are JPGs or PNGs-with-white-background. Even if the file extension says PNG, it might still have a white background baked in — PNG supports transparency, but only if the background was actually removed at some point. A PNG exported from PowerPoint or Word almost always has a white background.",
+      },
+      {
+        type: 'p',
+        text: "The fix is always the same: remove the background and save as a proper transparent PNG. That's the only file format that most software can use everywhere and actually preserves the transparency.",
+      },
+      {
+        type: 'cta',
+        text: 'Fix your image — make it transparent in under a minute',
+        href: '/make-image-transparent',
+      },
+      {
+        type: 'h2',
+        text: 'The situations where this comes up most',
+      },
+      {
+        type: 'p',
+        text: "Presentations are the most common one. You copy a logo from a website, paste it into Google Slides or PowerPoint on a coloured background, and the white box ruins the whole slide. Same thing happens with Notion pages, Canva designs, and any tool where you're layering images on a non-white background.",
+      },
+      {
+        type: 'p',
+        text: "Website headers are another one. A lot of brand logos live as JPGs on company websites. If you download one to use in a design, it's almost certainly got a white background. On a light-coloured header it's invisible. On anything dark it's immediately obvious.",
+      },
+      {
+        type: 'p',
+        text: "Email signatures are surprisingly common. You add a company logo to your signature and it shows a white rectangle in dark-mode email clients. The logo exists but the background does too, and dark mode makes it visible.",
+      },
+      {
+        type: 'h2',
+        text: 'One mistake that undoes everything',
+      },
+      {
+        type: 'p',
+        text: "After you remove the background and have a clean transparent PNG — don't save it as a JPG. This happens more than you'd think. Someone removes the background, opens it in an image editor, makes a small tweak, and saves as JPG out of habit. The transparent areas immediately fill with white and you're back to square one.",
+      },
+      {
+        type: 'p',
+        text: "Keep it as PNG all the way through. Only convert if you have a specific reason — and if the destination requires JPG, you've lost transparency and need to account for that in your design.",
+      },
+      {
+        type: 'h2',
+        text: 'How to create a transparent version of your image',
+      },
+      {
+        type: 'p',
+        text: "Upload to Renderly — JPG, PNG, whatever you have. The AI strips the background and gives you a clean transparent PNG back. Takes under a minute, no account needed. From that point, the white box problem goes away on whatever background you put it on.",
+      },
+      {
+        type: 'cta',
+        text: 'Make your image transparent — free, instant',
+        href: '/make-image-transparent',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-remove-white-background-from-logo',
+    title: 'How to Remove a White Background from a Logo (Free, No Photoshop)',
+    date: '2026-03-24',
+    readTime: '3 min read',
+    excerpt:
+      "Logo files downloaded from websites almost always have a white background baked in. Here's the fastest way to remove it and get a transparent PNG that works everywhere.",
+    accent: 'from-orange-500 to-amber-500',
+    toolHref: '/remove-logo-background',
+    toolCtaLabel: 'Remove logo background free',
+    content: [
+      {
+        type: 'p',
+        text: "When someone sends you a logo as a JPG or a PNG with a white background, placing it directly on a dark header or a coloured banner produces a white box around the logo. It looks like a mistake — because the white background from the original file shows through wherever the destination background differs.",
+      },
+      {
+        type: 'p',
+        text: "The fix is to remove the white background and save the logo as a transparent PNG. Once you have the transparent version, you can place it on any background — dark, light, patterned, or photographed — and it adapts perfectly.",
+      },
+      {
+        type: 'h2',
+        text: 'Why logos need transparent backgrounds',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Website headers — most sites use coloured or image backgrounds, not white',
+          'Dark mode interfaces — white-background logos create visible boxes',
+          'Printed materials — placing on any background colour without a white block',
+          'Email signatures — logos on email backgrounds often clash without transparency',
+          'Merchandise and swag — screen printing and embroidery need clean cutouts',
+          'Sponsorship graphics and overlays — brand placements on video or streams',
+        ],
+      },
+      {
+        type: 'p',
+        text: "Brand guidelines for larger companies always specify a transparent PNG version of the logo for exactly this reason. If you have a logo without one, creating it takes under a minute.",
+      },
+      {
+        type: 'cta',
+        text: 'Remove the white background from your logo — free',
+        href: '/remove-logo-background',
+      },
+      {
+        type: 'h2',
+        text: 'What about logos with complex shapes?',
+      },
+      {
+        type: 'p',
+        text: "Most logos have a relatively simple silhouette — a wordmark, an icon, or a combination. The AI handles those cleanly, detecting the logo shape against the background and preserving the detail in letterforms, thin strokes, and sharp corners.",
+      },
+      {
+        type: 'p',
+        text: "Where results can vary: logos with very fine lines thinner than 2–3 pixels, gradients that fade into the background colour, or logos with drop shadows built into the graphic. For those, a quick review after download is worth doing.",
+      },
+      {
+        type: 'h2',
+        text: 'How to do it on Renderly',
+      },
+      {
+        type: 'p',
+        text: "Upload the logo file — JPG or PNG both work. The AI detects the logo shape, removes the background, and returns a transparent PNG. Download and use directly. The whole process takes under a minute and requires no account or design software.",
+      },
+      {
+        type: 'cta',
+        text: 'Make your logo transparent — free, no Photoshop needed',
+        href: '/remove-logo-background',
+      },
+    ],
+  },
+  {
+    slug: 'how-to-create-transparent-signature',
+    title: 'How to Create a Transparent Signature Image for Documents and PDFs',
+    date: '2026-03-24',
+    readTime: '4 min read',
+    excerpt:
+      'A transparent signature PNG can be inserted into any document without a visible white box. Here is how to extract your handwritten signature from paper and use it digitally.',
+    accent: 'from-slate-600 to-slate-800',
+    toolHref: '/signature-background-remover',
+    toolCtaLabel: 'Extract my signature — free',
+    content: [
+      {
+        type: 'p',
+        text: "Inserting a scanned signature into a document often produces a white box around it — the scanned paper background showing through. On a white document this is barely visible, but on anything with a background colour or image, it looks unprofessional.",
+      },
+      {
+        type: 'p',
+        text: "The solution is a transparent signature PNG: a file that contains only the signature strokes with a transparent background. When you place it in a document, only the ink is visible — no white box, no paper texture, no background rectangle.",
+      },
+      {
+        type: 'h2',
+        text: 'Where transparent signature images are used',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Contracts and legal documents — insert directly on the signature line',
+          'PDF forms — sign digitally without printing and scanning',
+          'Business correspondence — add a personal signature to emails and letters',
+          'Google Docs and Word documents — insert as an image above the signature line',
+          'Invoices — professional, personalised appearance without a scan box',
+        ],
+      },
+      {
+        type: 'p',
+        text: "A transparent signature is also more versatile than a scanned JPEG. If the document background changes — a coloured header, a watermark, a branded template — the signature still sits cleanly on top of it.",
+      },
+      {
+        type: 'cta',
+        text: 'Extract your signature as a transparent PNG — free',
+        href: '/signature-background-remover',
+      },
+      {
+        type: 'h2',
+        text: 'How to get the best scan to work from',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Sign on plain white paper with a dark pen — black or blue works best',
+          'Use even lighting when photographing — no harsh shadows across the signature',
+          'Keep the paper flat — creases create noise that the AI has to deal with',
+          'Fill a reasonable portion of the frame — avoid tiny signatures in a large photo',
+        ],
+      },
+      {
+        type: 'p',
+        text: "A photo from a phone camera in good lighting works fine. You do not need a dedicated scanner. The AI handles the rest — detecting the ink strokes and discarding the paper background.",
+      },
+      {
+        type: 'h2',
+        text: 'How to use the transparent signature in a PDF',
+      },
+      {
+        type: 'p',
+        text: "In Adobe Acrobat: use the Edit PDF tool, then Insert Image, and position over the signature field. In Preview on Mac: open the PDF, use Tools > Annotate > Signature, or simply insert the PNG as an image. In Google Docs: Insert > Image > Upload from computer, then resize and position.",
+      },
+      {
+        type: 'p',
+        text: "Once the PNG is positioned correctly, flatten the document before sending. In most apps this means exporting or printing to PDF rather than saving the working file.",
+      },
+      {
+        type: 'h2',
+        text: 'Creating the transparent signature on Renderly',
+      },
+      {
+        type: 'p',
+        text: "Upload a photo or scan of your signature on paper. The AI detects the signature strokes against the paper background, removes the background, and returns a transparent PNG. Download and insert directly into any document. No account required.",
+      },
+      {
+        type: 'cta',
+        text: 'Extract your handwritten signature — free transparent PNG download',
+        href: '/signature-background-remover',
+      },
+    ],
+  },
 ]
