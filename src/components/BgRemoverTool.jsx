@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useCallback, useEffect } from 'react'
+import { FeedbackWidget, sendFeedback } from '@/components/FeedbackWidget'
 
 const API_BASE = 'https://satisfied-growth-production-5050.up.railway.app'
 const POLL_MS = 2500
@@ -261,6 +262,7 @@ export function BgRemoverTool({ tool, buttonLabel = 'Remove Background' }) {
   const [preview, setPreview] = useState(null)
   const [status, setStatus] = useState('idle')
   const [resultUrl, setResultUrl] = useState(null)
+  const [taskId, setTaskId] = useState(null)
   const [error, setError] = useState(null)
   const pollRef = useRef(null)
 
@@ -310,6 +312,7 @@ export function BgRemoverTool({ tool, buttonLabel = 'Remove Background' }) {
         throw new Error(body.error || `Upload failed (${res.status})`)
       }
       const { task_id } = await res.json()
+      setTaskId(task_id)
       setStatus('processing')
       pollRef.current = setInterval(async () => {
         try {
@@ -340,6 +343,7 @@ export function BgRemoverTool({ tool, buttonLabel = 'Remove Background' }) {
     setPreview(null)
     setStatus('idle')
     setResultUrl(null)
+    setTaskId(null)
     setError(null)
   }
 
@@ -352,6 +356,7 @@ export function BgRemoverTool({ tool, buttonLabel = 'Remove Background' }) {
       a.download = `renderly-${tool}.png`
       a.click()
       URL.revokeObjectURL(url)
+      sendFeedback({ feature: tool, task_id: taskId, downloaded: true })
     } catch {
       window.open(resultUrl, '_blank')
     }
@@ -398,6 +403,7 @@ export function BgRemoverTool({ tool, buttonLabel = 'Remove Background' }) {
             </button>
           </div>
         </div>
+        <FeedbackWidget feature={tool} taskId={taskId} />
       </div>
     )
   }
