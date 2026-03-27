@@ -1463,4 +1463,202 @@ export const posts = [
       },
     ],
   },
+  {
+    slug: 'remove-background-from-product-photos',
+    title: 'Removing Backgrounds from Product Photos for Amazon, Etsy, and Shopify',
+    date: '2026-03-27',
+    readTime: '5 min read',
+    excerpt:
+      "Amazon rejects product images with non-white backgrounds automatically. The spec is strict, but the process isn't difficult once you know what you're actually dealing with.",
+    accent: 'from-emerald-500 to-green-600',
+    toolHref: '/remove-background',
+    toolCtaLabel: 'Remove product photo background free',
+    content: [
+      {
+        type: 'p',
+        text: "Amazon's main image requirement gets listings pulled more often than any other formatting rule: the background must be pure white. Not off-white, not a light softbox grey, not a gradient. #ffffff. The platform runs an automated check on every main image, and if it doesn't pass, your listing either gets rejected outright or gets suppressed once it's live.",
+      },
+      {
+        type: 'p',
+        text: "Most sellers hit this problem with photos they already have. A lifestyle shot, a flat lay on a marble countertop, a product on a wooden table — none of those pass. You either reshoot everything against a white backdrop, or you remove the background and replace it with white. For most sellers, removing the background is the faster path.",
+      },
+      {
+        type: 'h2',
+        text: "Why marketplaces care so much about white backgrounds",
+      },
+      {
+        type: 'p',
+        text: "It's about consistency across the shopping experience. When every product floats on white, buyers can compare items without the photo style getting in the way. Color accuracy looks more reliable. The product is the only thing in the frame. Amazon in particular enforces the rule because their data shows conversion is higher when the main product image is clean.",
+      },
+      {
+        type: 'p',
+        text: "Amazon's requirement goes further than just white: the product must occupy at least 85% of the image frame. So a tiny product centered in a sea of white won't pass either. You need to fill the frame and have a white background.",
+      },
+      {
+        type: 'p',
+        text: "Shopify and Etsy are less automated about it, but white-background product images still outperform lifestyle photos in search and browse contexts — because buyers are in purchase mode, not inspiration mode. They want to see the product clearly.",
+      },
+      {
+        type: 'cta',
+        text: 'Remove your product photo background — free, instant',
+        href: '/remove-background',
+      },
+      {
+        type: 'h2',
+        text: 'Where product background removal is easier than you expect',
+      },
+      {
+        type: 'p',
+        text: "Products, unlike people, usually have clean edges. A coffee mug has a crisp silhouette. A pair of shoes has a clear outline. A box has straight sides. There's no hair, no fur, no soft blur where the subject grades into the background. The AI can find those edges cleanly, and most product photos on a reasonably distinct background — a table, a sheet, a studio setup — come out well on the first pass.",
+      },
+      {
+        type: 'h2',
+        text: 'The three cases that cause trouble',
+      },
+      {
+        type: 'p',
+        text: "Reflective surfaces — chrome, polished metal, glass — partially reflect the background. When the background goes transparent, the product retains those reflections. A glass bottle that had a white-background reflection in the glass now shows that area as transparent. Usually still usable for product listings, but worth looking at before uploading.",
+      },
+      {
+        type: 'p',
+        text: "White or very light products photographed against white are the hardest case. The AI has to find a low-contrast edge where the product blends into the background. If you have the option to shoot on a slightly off-white or light grey surface, you'll get a cleaner cut — then do the removal from that higher-contrast source photo.",
+      },
+      {
+        type: 'p',
+        text: "Transparent packaging and clear containers are the most unpredictable. The AI will often remove the transparent areas along with the background. Sometimes that's fine; sometimes you lose the whole product shape. These usually need a manual touch-up.",
+      },
+      {
+        type: 'h2',
+        text: 'The actual workflow from removal to Amazon-ready',
+      },
+      {
+        type: 'p',
+        text: "Upload the product photo. Download the transparent PNG. Open it in any image editor — even Google Slides or PowerPoint works in a pinch — and add a solid white background layer beneath the product. Export as JPG.",
+      },
+      {
+        type: 'p',
+        text: "Amazon accepts JPG for main product images. The white background in a JPG is stored as actual white pixels (#ffffff), which is what the automated check looks for. A transparent PNG without a white layer added doesn't work — you have to composite it.",
+      },
+      {
+        type: 'p',
+        text: "For Etsy and Shopify you can upload the PNG directly or go through the same JPG export step. Either works.",
+      },
+      {
+        type: 'h2',
+        text: 'If you can reshoot, it is faster',
+      },
+      {
+        type: 'p',
+        text: "AI background removal is the right fix when you have existing photos that don't meet the spec. But if you're shooting new products, putting them on a white sweep with controlled lighting is faster overall — the photos pass the check directly, no removal step needed. A white foam board from a dollar store is enough for small products.",
+      },
+      {
+        type: 'cta',
+        text: 'Remove your product photo background — free, no sign-up',
+        href: '/remove-background',
+      },
+    ],
+  },
+  {
+    slug: 'passport-photo-requirements',
+    title: 'Passport Photo Requirements: The Actual Spec and Why Photos Get Rejected',
+    date: '2026-03-27',
+    readTime: '5 min read',
+    excerpt:
+      "Passport photos get rejected for specific, predictable reasons — and most of them are easy to avoid if you know the actual spec before you take the photo.",
+    accent: 'from-sky-500 to-blue-600',
+    toolHref: '/passport-photo-maker',
+    toolCtaLabel: 'Make a compliant passport photo free',
+    content: [
+      {
+        type: 'p',
+        text: "Passport photos cost $15–20 at a drugstore. The process of making one takes about two minutes. The price exists because the spec is specific and most people don't know it. Once you do, the job is just: take a photo that hits a few measurements and print it at the right size.",
+      },
+      {
+        type: 'p',
+        text: "The spec is public. It's on the State Department website, on every visa application form, and on the USCIS site. None of it is complicated — but not knowing one rule (the glasses rule, the head size rule, the shadow rule) is enough to get the photo rejected at the post office or the DMV.",
+      },
+      {
+        type: 'h2',
+        text: 'The US passport photo specification',
+      },
+      {
+        type: 'p',
+        text: "Printed size is 2×2 inches (51×51mm). Your head must occupy between 1 inch and 1⅜ inches of the frame from the bottom of your chin to the top of your head — so your head takes up roughly half to two-thirds of the photo. Background is plain white or off-white, no patterns. Face straight to the camera, eyes open and clearly visible. Expression: neutral or a natural smile.",
+      },
+      {
+        type: 'p',
+        text: "No glasses. This was updated in 2016 and still catches people who haven't renewed a passport in a while. No exceptions are made — take the glasses off for the photo.",
+      },
+      {
+        type: 'p',
+        text: "Lighting should be even across the face. No shadows falling across the nose, under the chin, or on the wall behind you. No filters, no heavy editing. The photo must be recent — taken within the last six months.",
+      },
+      {
+        type: 'cta',
+        text: 'Make a compliant passport photo online — free',
+        href: '/passport-photo-maker',
+      },
+      {
+        type: 'h2',
+        text: 'The most common rejection reasons',
+      },
+      {
+        type: 'p',
+        text: "Shadows are the most common one. If you stand too close to the wall, your head casts a shadow on the background. If the light source is above you or to one side, you get a shadow across your face. Even lighting from in front is what you're after.",
+      },
+      {
+        type: 'p',
+        text: "Head too small is the second most common. People take a photo from too far away and the head ends up tiny in the 2×2 frame. The spec says your head needs to fill 1 to 1⅜ inches of a 2-inch frame — so it should be fairly close-up. Stand close to the camera, or crop tightly before printing.",
+      },
+      {
+        type: 'p',
+        text: "The glasses rule, the background color (beige walls, textured walls, off-white that's too far off), a slight head tilt, and a closed mouth with a smile that makes the eyes squint — all of these get flagged. They're all avoidable if you check the photo before you print.",
+      },
+      {
+        type: 'h2',
+        text: "What 'biometric compliance' actually means",
+      },
+      {
+        type: 'p',
+        text: "Biometric checks measure face geometry: the distance between your eyes, the proportion of your face in the frame, whether you're looking directly at the camera. 'Biometric compliant' just means those measurements fall within the acceptable range. An AI tool that checks biometric compliance before you download is running the same check the government runs — just earlier in the process, so you can fix it before submitting.",
+      },
+      {
+        type: 'h2',
+        text: 'Can you take the photo yourself at home?',
+      },
+      {
+        type: 'p',
+        text: "Yes. The State Department explicitly allows it. You need a white wall (or a white sheet hung behind you), even light from in front, and someone to take the photo — or a phone propped at the right height on a timer. Stand far enough from the wall that you don't cast a shadow on it (about 3 feet back is usually enough), but close enough to the camera that your head fills the frame properly.",
+      },
+      {
+        type: 'p',
+        text: "The part most people get wrong when doing it themselves: the distance from camera to subject. Too far and the head is too small; too close and the perspective distorts the face. The sweet spot is roughly 3–4 feet from the camera for most phone cameras.",
+      },
+      {
+        type: 'h2',
+        text: 'Does an online passport photo actually get accepted?',
+      },
+      {
+        type: 'p',
+        text: "Yes — as long as it meets the spec. What gets reviewed is the printed photo, not how it was made. Whether it came from a Walgreens kiosk or an AI tool, the acceptance decision is based on whether the photo passes the measurements. The origin doesn't factor in.",
+      },
+      {
+        type: 'p',
+        text: "One thing the tool can't do is print it for you. You still need a physical print — 2×2 inches on photo paper. Walgreens, CVS, and most 1-hour photo services will print passport photos (usually $0.30–$0.50 per print if you bring the file). Or print a 4×6 at home on photo paper at 300dpi and cut to 2×2.",
+      },
+      {
+        type: 'h2',
+        text: 'A note on international passport photos',
+      },
+      {
+        type: 'p',
+        text: "Other countries have different specs — the UK uses 35×45mm, most EU countries use 35×45mm or 35×45mm, Canada has different head size ratios. If you're applying for a visa or a foreign passport, look up the specific country's requirements before formatting the photo. The general rules (white background, neutral expression, no glasses, even lighting) are consistent; the exact size and head proportion ratios vary.",
+      },
+      {
+        type: 'cta',
+        text: 'Create your passport photo online — free, biometric-ready',
+        href: '/passport-photo-maker',
+      },
+    ],
+  },
 ]
