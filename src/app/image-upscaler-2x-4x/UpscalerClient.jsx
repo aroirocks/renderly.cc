@@ -73,7 +73,7 @@ function ProcessingView({ phase, previewUrl }) {
             <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2">
               <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-slate-900/80 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
                 <span
-                  className="inline-block h-1.5 w-1.5 rounded-full bg-indigo-400"
+                  className="inline-block h-1.5 w-1.5 rounded-full bg-red-400"
                   style={{ animation: 'pulse 1s infinite' }}
                 />
                 AI is upscaling…
@@ -85,8 +85,8 @@ function ProcessingView({ phase, previewUrl }) {
 
       {/* Spinner */}
       <div className="relative flex h-20 w-20 items-center justify-center">
-        <div className="absolute inset-0 animate-ping rounded-full bg-indigo-100 opacity-60" />
-        <div className="absolute inset-2 animate-spin rounded-full border-4 border-indigo-200 border-t-indigo-500" />
+        <div className="absolute inset-0 animate-ping rounded-full bg-red-100 opacity-60" />
+        <div className="absolute inset-2 animate-spin rounded-full border-4 border-red-200 border-t-red-500" />
         <span className="relative text-2xl">✨</span>
       </div>
 
@@ -106,7 +106,7 @@ function ProcessingView({ phase, previewUrl }) {
         </div>
         <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
           <div
-            className="h-full rounded-full bg-linear-to-r from-indigo-400 to-violet-500 transition-all duration-500"
+            className="h-full rounded-full bg-linear-to-r from-red-400 to-red-600 transition-all duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -120,7 +120,7 @@ function ProcessingView({ phase, previewUrl }) {
           return (
             <div
               key={label}
-              className={`flex items-center gap-3 rounded-xl px-3 py-2 transition-colors ${active ? 'bg-indigo-50' : ''}`}
+              className={`flex items-center gap-3 rounded-xl px-3 py-2 transition-colors ${active ? 'bg-red-50' : ''}`}
             >
               <span className="text-base leading-none">
                 {done ? '✅' : active ? icon : '⬜'}
@@ -141,7 +141,7 @@ function ProcessingView({ phase, previewUrl }) {
                   {[0, 1, 2].map((d) => (
                     <span
                       key={d}
-                      className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-indigo-400"
+                      className="inline-block h-1.5 w-1.5 animate-bounce rounded-full bg-red-400"
                       style={{ animationDelay: `${d * 150}ms` }}
                     />
                   ))}
@@ -341,7 +341,7 @@ export function UpscalerClient() {
                 onClick={() => setFactor(f)}
                 className={`flex-1 rounded-full border-2 py-3 text-base font-semibold transition ${
                   factor === f
-                    ? 'border-indigo-600 bg-indigo-600 text-white'
+                    ? 'border-red-600 bg-red-600 text-white'
                     : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
                 }`}
               >
@@ -354,7 +354,7 @@ export function UpscalerClient() {
           <div
             className={`cursor-pointer rounded-3xl border-2 border-dashed p-6 transition-colors sm:p-10 ${
               isDragOver
-                ? 'border-indigo-400 bg-indigo-50'
+                ? 'border-red-400 bg-red-50'
                 : 'border-slate-200 bg-slate-50 hover:border-slate-300'
             }`}
             onDragOver={(e) => {
@@ -375,7 +375,7 @@ export function UpscalerClient() {
 
             {!file ? (
               <div className="flex flex-col items-center gap-3 py-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-indigo-100 text-indigo-600">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-red-100 text-red-600">
                   <svg
                     width="26"
                     height="26"
@@ -435,7 +435,7 @@ export function UpscalerClient() {
                     onClick={() => setOutputFormat(fmt)}
                     className={`flex-1 rounded-lg border py-1.5 text-xs font-semibold transition ${
                       outputFormat === fmt
-                        ? 'border-indigo-300 bg-indigo-50 text-indigo-700'
+                        ? 'border-red-300 bg-red-50 text-red-700'
                         : 'border-slate-200 text-slate-500 hover:border-slate-300'
                     }`}
                   >
@@ -456,7 +456,7 @@ export function UpscalerClient() {
                 max="100"
                 value={quality}
                 onChange={(e) => setQuality(Number(e.target.value))}
-                className="w-full accent-indigo-600"
+                className="w-full accent-red-600"
               />
               <div className="mt-1 flex justify-between text-xs text-slate-400">
                 <span>Smaller file</span>
@@ -470,7 +470,7 @@ export function UpscalerClient() {
             <button
               onClick={handleUpscale}
               disabled={!file}
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-indigo-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-indigo-600/20 transition hover:bg-indigo-700 active:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-40"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-red-600/20 transition hover:bg-red-700 active:bg-red-800 disabled:cursor-not-allowed disabled:opacity-40"
             >
               ✨ Upscale Image
             </button>
@@ -505,7 +505,7 @@ export function UpscalerClient() {
           </div>
 
           {/* Info bar */}
-          <div className="rounded-xl border border-indigo-100 bg-indigo-50 px-4 py-3 text-center text-sm text-indigo-700">
+          <div className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-center text-sm text-red-700">
             Upscaled {factor} · {outputFormat} · AI enhanced
           </div>
 
@@ -513,7 +513,7 @@ export function UpscalerClient() {
           <div className="text-center">
             <button
               onClick={handleDownload}
-              className="inline-flex items-center gap-2 rounded-full bg-indigo-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-600/20 hover:bg-indigo-700"
+              className="inline-flex items-center gap-2 rounded-full bg-red-600 px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-red-600/20 hover:bg-red-700"
             >
               <svg
                 width="15"
