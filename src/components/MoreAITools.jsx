@@ -300,6 +300,77 @@ function SignatureIcon() {
   )
 }
 
+/* ── Image Upscaler illustration ─────────────────────────────────────────── */
+function UpscalerIcon() {
+  return (
+    <div className="relative w-full">
+      <svg viewBox="0 0 260 150" xmlns="http://www.w3.org/2000/svg" className="w-full">
+        <defs>
+          {/* Pixel grid pattern for the "before" low-res panel */}
+          <pattern id="px-grid" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+            <rect width="12" height="12" fill="none" stroke="#c7d2fe" strokeWidth="0.5" />
+          </pattern>
+        </defs>
+
+        {/* LEFT — small / blurry low-res image */}
+        <rect x="14" y="18" width="96" height="114" rx="8" fill="#eef2ff" stroke="#c7d2fe" strokeWidth="1.5" />
+        {/* pixelation blocks */}
+        <rect x="22" y="26" width="22" height="22" rx="2" fill="#a5b4fc" opacity="0.6" />
+        <rect x="46" y="26" width="22" height="22" rx="2" fill="#818cf8" opacity="0.7" />
+        <rect x="70" y="26" width="22" height="22" rx="2" fill="#6366f1" opacity="0.5" />
+        <rect x="22" y="50" width="22" height="22" rx="2" fill="#6366f1" opacity="0.55" />
+        <rect x="46" y="50" width="22" height="22" rx="2" fill="#4f46e5" opacity="0.8" />
+        <rect x="70" y="50" width="22" height="22" rx="2" fill="#818cf8" opacity="0.5" />
+        <rect x="22" y="74" width="22" height="22" rx="2" fill="#a5b4fc" opacity="0.45" />
+        <rect x="46" y="74" width="22" height="22" rx="2" fill="#818cf8" opacity="0.6" />
+        <rect x="70" y="74" width="22" height="22" rx="2" fill="#6366f1" opacity="0.65" />
+        {/* pixel grid overlay */}
+        <rect x="14" y="18" width="96" height="114" rx="8" fill="url(#px-grid)" />
+        {/* "Low res" label */}
+        <rect x="22" y="104" width="40" height="14" rx="4" fill="#6366f1" opacity="0.8" />
+        <text x="42" y="114" textAnchor="middle" fontSize="7" fill="white" fontWeight="bold">LOW RES</text>
+
+        {/* Animated arrow */}
+        <g>
+          <line x1="118" y1="75" x2="142" y2="75" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round" />
+          <polyline points="135,68 142,75 135,82" fill="none" stroke="#6366f1" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          {/* 2x / 4x label above arrow */}
+          <text x="130" y="70" textAnchor="middle" fontSize="8" fill="#6366f1" fontWeight="bold">4×</text>
+          <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 0;5 0;0 0" dur="1s" repeatCount="indefinite" />
+        </g>
+
+        {/* RIGHT — crisp high-res upscaled */}
+        <rect x="150" y="18" width="96" height="114" rx="8" fill="#eef2ff" stroke="#c7d2fe" strokeWidth="1.5" />
+        {/* smooth gradient blocks — same layout but no hard pixel edges */}
+        <rect x="152" y="20" width="92" height="110" rx="7" fill="url(#upscale-grad)" />
+        <defs>
+          <radialGradient id="upscale-grad" cx="50%" cy="45%" r="60%">
+            <stop offset="0%" stopColor="#6366f1" stopOpacity="0.7" />
+            <stop offset="100%" stopColor="#c7d2fe" stopOpacity="0.3" />
+          </radialGradient>
+        </defs>
+        {/* crisp diagonal highlight to suggest sharpness */}
+        <line x1="152" y1="20" x2="242" y2="110" stroke="white" strokeWidth="18" strokeOpacity="0.12" />
+        <line x1="170" y1="20" x2="242" y2="92" stroke="white" strokeWidth="10" strokeOpacity="0.08" />
+        {/* "4x HD" badge */}
+        <rect x="158" y="104" width="50" height="16" rx="5" fill="#4f46e5" />
+        <text x="183" y="115" textAnchor="middle" fontSize="8" fill="white" fontWeight="bold">4× HD</text>
+
+        {/* Floating sparkles — bottom right of right panel */}
+        <g>
+          <line x1="230" y1="30" x2="230" y2="40" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+          <line x1="225" y1="35" x2="235" y2="35" stroke="#fbbf24" strokeWidth="2" strokeLinecap="round" />
+          <animateTransform attributeName="transform" attributeType="XML" type="translate" values="0 0;0 -3;0 0" dur="1.4s" repeatCount="indefinite" />
+        </g>
+        <circle cx="242" cy="26" r="3" fill="#fbbf24" opacity="0.7">
+          <animate attributeName="opacity" values="0.7;0.2;0.7" dur="1.4s" begin="0.3s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+      <Shimmer className="rounded-xl" />
+    </div>
+  )
+}
+
 /* ── Tool data ────────────────────────────────────────────────────────────── */
 const TOOLS = [
   {
@@ -361,6 +432,16 @@ const TOOLS = [
     badgeColor: '',
     ctaColor: 'text-slate-700',
     icon: <SignatureIcon />,
+  },
+  {
+    name: 'AI Image Upscaler — 2x & 4x',
+    href: '/image-upscaler-2x-4x',
+    tagline: 'Increase image resolution 2x or 4x with AI. Sharper, larger, print-ready.',
+    bg: 'bg-indigo-50',
+    badge: 'NEW',
+    badgeColor: 'bg-indigo-600',
+    ctaColor: 'text-indigo-600',
+    icon: <UpscalerIcon />,
   },
 ]
 
