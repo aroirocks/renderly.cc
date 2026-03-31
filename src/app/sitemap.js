@@ -60,6 +60,12 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${BASE}/image-upscaler-2x-4x`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${BASE}/blog`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
