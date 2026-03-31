@@ -82,7 +82,7 @@ export default function ImageUpscalerPage() {
         <section className="bg-white py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-indigo-200 bg-indigo-100 px-3 py-1 text-xs text-indigo-700">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-red-200 bg-red-50 px-3 py-1 text-xs text-red-700">
                 ✨ Free · No sign-up needed · 2x & 4x
               </span>
               <h1 className="mt-4 font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">

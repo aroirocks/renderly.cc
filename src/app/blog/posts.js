@@ -1859,4 +1859,186 @@ export const posts = [
       },
     ],
   },
+  {
+    slug: 'when-image-resolution-actually-matters',
+    title: 'When Image Resolution Actually Matters (and When It Doesn\'t)',
+    date: '2026-04-01',
+    readTime: '5 min read',
+    excerpt:
+      'Most people don\'t think about resolution until something goes wrong — a blurry print, a pixelated product shot, an old photo that falls apart when zoomed in. Here\'s when it actually matters and what to do about it.',
+    accent: 'from-red-500 to-orange-400',
+    content: [
+      {
+        type: 'p',
+        text: "Resolution only becomes a problem at a specific moment: when you're printing something, or when someone zooms in and sees the pixels. Before that moment, a small image looks fine. After it, no amount of manual editing fixes it cleanly.",
+      },
+      {
+        type: 'p',
+        text: "The question isn't whether your image is \"high resolution\" in the abstract. It's whether it has enough pixels for the specific thing you're trying to do with it. A 500×500 pixel image is perfectly fine as a profile photo and completely unusable as a print on a 16×16 canvas.",
+      },
+      {
+        type: 'h2',
+        text: 'Printing is where low resolution hurts most',
+      },
+      {
+        type: 'p',
+        text: "Print shops work in DPI — dots per inch. The standard for a quality print is 300 DPI. That means a 4×6 inch print at full quality needs 1200×1800 pixels. A typical phone photo is 3000+ pixels wide, so it handles that easily. But a photo you pulled from a website, a screenshot, or an image someone sent over chat? Probably not.",
+      },
+      {
+        type: 'p',
+        text: "The blurry print problem is almost always a resolution problem. The image looked fine on screen because monitors display at 72–96 DPI — you only need a fraction of the pixels that print requires. When the printer tries to stretch those pixels across 300 DPI output, it has to invent detail it doesn't have.",
+      },
+      {
+        type: 'p',
+        text: "If you need to increase image resolution online before sending a file to a print shop, AI upscaling is the right step. It adds genuine detail rather than just stretching — the output will hold up much better under the print process.",
+      },
+      {
+        type: 'h2',
+        text: 'E-commerce product photos',
+      },
+      {
+        type: 'p',
+        text: "Amazon, Etsy, and Shopify all have zoom features. When a customer clicks to zoom in on a product photo, a low-resolution image falls apart immediately — visible pixels, blurry edges, a generally cheap-looking result that affects whether the purchase happens.",
+      },
+      {
+        type: 'p',
+        text: "Amazon's main image requirement is 1000px on the longest side to enable zoom. That's a minimum. A 2000px image will zoom to 2× before it starts to look soft, which is the level that makes a product look worth buying. If you have product photos that are just below that threshold, using an image upscaler 2x gets you to a usable size without reshooting.",
+      },
+      {
+        type: 'cta',
+        text: 'Upscale your image free — increase resolution 2x or 4x instantly',
+        href: '/image-upscaler-2x-4x',
+      },
+      {
+        type: 'h2',
+        text: 'Old photos and scanned images',
+      },
+      {
+        type: 'p',
+        text: "Scanned photos from the 90s or early 2000s were often saved at low resolution because storage was expensive and screens were small. A scan that looked fine on a CRT monitor in 2001 doesn't hold up on a modern 4K display or when you try to print it at any meaningful size.",
+      },
+      {
+        type: 'p',
+        text: "This is one of the best use cases for AI upscaling. The AI is trained on photo-realistic images, so it's good at recovering the kind of detail that exists in portraits and landscapes — hair texture, fabric, faces. It can't add detail that was never there, but it can make a credible inference that's much better than a blurry stretch.",
+      },
+      {
+        type: 'p',
+        text: "For family photos, especially older prints that someone has photographed with a phone rather than scanned properly, the improvement is usually significant. Use the image upscaler 4x option for the smallest originals — it gives the AI more room to work with.",
+      },
+      {
+        type: 'h2',
+        text: 'When resolution doesn\'t matter',
+      },
+      {
+        type: 'p',
+        text: "Social media posts, profile photos, website thumbnails, messenger attachments, and anything that displays at a fixed small size on screen — resolution rarely matters here. A 600×600 image looks identical to a 2000×2000 image in a 100px Instagram circle. Upscaling a file that's only ever displayed on screen at small sizes just creates a larger file with no visible benefit.",
+      },
+      {
+        type: 'p',
+        text: "The rule of thumb: if it's going to be printed, zoomed, or displayed at a large size, resolution matters. If it's always going to be viewed at a small fixed size on screen, it probably doesn't.",
+      },
+      {
+        type: 'h2',
+        text: 'How to actually improve image quality online',
+      },
+      {
+        type: 'p',
+        text: "The process to improve image quality online is straightforward. Upload the image, choose 2x for moderate enlargement (good for print and e-commerce) or 4x for maximum resolution from very small sources. The AI analyses the content of the image and generates additional pixels — not just stretched copies of existing ones, but inferred detail based on patterns in the original.",
+      },
+      {
+        type: 'p',
+        text: "Output format choice matters too. PNG is lossless — no compression artifacts added on top of the upscaled result. JPG is smaller and fine for photos. WebP is a good middle ground for web use. For print, use PNG or JPG at 90%+ quality.",
+      },
+      {
+        type: 'cta',
+        text: 'Try the free image upscaler — no account needed',
+        href: '/image-upscaler-2x-4x',
+      },
+    ],
+  },
+  {
+    slug: 'why-resizing-images-looks-bad',
+    title: 'Why Resizing an Image Makes It Worse — and What AI Does Differently',
+    date: '2026-04-01',
+    readTime: '4 min read',
+    excerpt:
+      "You\'ve seen it before: you resize an image up and it goes blurry. That\'s not a software bug. It\'s a fundamental problem with how traditional resizing works — and AI solves it in a completely different way.",
+    accent: 'from-violet-500 to-red-500',
+    content: [
+      {
+        type: 'p',
+        text: "Every image is a grid of pixels, and each pixel has a fixed colour. When you make the image bigger, you need more pixels — but the original ones don't contain any additional information. Traditional software has to invent the new pixels somehow, and it does that using interpolation: essentially averaging the colours of neighbouring pixels to fill the gaps.",
+      },
+      {
+        type: 'p',
+        text: "The result is that blurry, slightly smeared look you get when you resize a photo too large in Photoshop or a phone editor. The software is doing the only thing it can — guessing — and a mathematical average is a poor substitute for actual detail.",
+      },
+      {
+        type: 'h2',
+        text: 'The three types of interpolation and why they all fall short',
+      },
+      {
+        type: 'p',
+        text: "Nearest-neighbour interpolation copies the nearest existing pixel, which makes the image look blocky and pixelated — the classic \"pixel art\" distortion you get from aggressively enlarging a small image. Bilinear interpolation blends two neighbouring pixels, which smooths the blockiness but makes everything soft. Bicubic interpolation samples a wider area and applies a smoother curve, which is what Photoshop uses by default — it's the least bad option, but it still blurs fine edges and introduces ringing artifacts.",
+      },
+      {
+        type: 'p',
+        text: "All three methods share the same fundamental problem: they're working only with information that's already in the file. There's nothing to add because no method of averaging can generate real detail from a low-resolution source.",
+      },
+      {
+        type: 'h2',
+        text: 'What AI upscaling does instead',
+      },
+      {
+        type: 'p',
+        text: "AI upscaling uses a neural network trained on pairs of images: a high-resolution original and its downscaled version. Over millions of training examples, the model learns to recognise patterns — what a sharp edge looks like, what skin texture looks like, what fabric weave looks like — and builds a mapping from low-resolution patterns to their high-resolution equivalents.",
+      },
+      {
+        type: 'p',
+        text: "When you upscale image online with AI, the model isn't averaging pixels. It's looking at the structure of your image — edges, textures, shapes — and making an informed prediction about what the higher-resolution version of that structure should look like. The result is a genuinely sharper image with recovered detail, not just a blurry enlargement.",
+      },
+      {
+        type: 'p',
+        text: "This is why the difference is visible immediately. Bicubic upscaling of a face blurs the skin and softens the eyes. AI upscaling keeps edge definition around the eyes, recovers hair detail, and generally produces something that looks like it was photographed at higher resolution rather than digitally stretched.",
+      },
+      {
+        type: 'cta',
+        text: 'Try it — upscale any image free, no sign-up needed',
+        href: '/image-upscaler-2x-4x',
+      },
+      {
+        type: 'h2',
+        text: 'The 2x vs 4x question',
+      },
+      {
+        type: 'p',
+        text: "An image upscaler 2x doubles both the width and height — the total pixel count goes up by four. That's the right choice for most situations: print-ready images, sharper product photos, old photos that are a bit too small. The processing is faster and the output files are manageable.",
+      },
+      {
+        type: 'p',
+        text: "An image upscaler 4x quadruples both dimensions — 16× more pixels total. That's significant. You'd use 4x when you're starting from something very small and need to reach a genuinely large output, like a tiny product photo that needs to fill a banner, or a very old scan that needs to be printed large. The quality gain is real, but the file size is substantial.",
+      },
+      {
+        type: 'h2',
+        text: 'Where AI upscaling has limits',
+      },
+      {
+        type: 'p',
+        text: "AI can enhance image resolution convincingly — but it can't recover information that was never captured. If an image is severely compressed and the underlying detail is genuinely gone (replaced by JPEG block artifacts), the AI will clean up the artifacts but won't be able to restore what wasn't there. The output will be sharper than the original but less detailed than a true high-resolution photo.",
+      },
+      {
+        type: 'p',
+        text: "The best results come from images that are simply small — resized down from a larger original, or captured at lower megapixels — where the subject detail exists but the pixel count is too low. In those cases the AI has real patterns to work with, and the improvement to image quality online is striking.",
+      },
+      {
+        type: 'p',
+        text: "Text, fine lines, and geometric patterns sometimes show artifacts at extreme upscale factors — particularly at 4x on already-compressed sources. If you're upscaling something with small text in it, 2x usually produces cleaner results than 4x.",
+      },
+      {
+        type: 'cta',
+        text: 'Enhance image resolution free — 2x or 4x, instant results',
+        href: '/image-upscaler-2x-4x',
+      },
+    ],
+  },
 ]
