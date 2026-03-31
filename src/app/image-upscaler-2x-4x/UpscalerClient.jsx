@@ -8,6 +8,18 @@ const POLL_MS = 2500
 const MAX_FILE_SIZE = 10 * 1024 * 1024
 const ACCEPTED_TYPES = ['image/jpeg', 'image/png', 'image/webp']
 
+const ERROR_MESSAGES = {
+  FREE_PROCESSING_PAUSED: 'Service is paused for maintenance. Please try again later.',
+  DAILY_LIMIT_REACHED: 'Daily limit reached. Please try again tomorrow.',
+  RATE_LIMITED: 'Too many requests. Please wait an hour and try again.',
+  CONCURRENT_TASK: 'You already have an image processing. Please wait for it to finish.',
+  MONTHLY_LIMIT_REACHED: 'Monthly limit of 50 upscales reached.',
+  INVALID_FACTOR: 'Invalid scale factor. Must be 2 or 4.',
+  INVALID_IMAGE_TYPE: 'Unsupported image type. Please upload a JPEG, PNG, or WebP.',
+  INVALID_OUTPUT_FORMAT: 'Invalid output format. Choose PNG, JPG, or WEBP.',
+  INVALID_OUTPUT_QUALITY: 'Invalid quality value. Must be between 20 and 99.',
+}
+
 const PROCESS_STEPS = [
   { label: 'Uploading image', icon: '📤' },
   { label: 'In queue — starting shortly', icon: '⏳' },
@@ -209,7 +221,7 @@ export function UpscalerClient() {
   const pollTask = useCallback(
     async (id) => {
       try {
-        const res = await fetch(`${API_BASE}/v1/tasks/${id}`)
+        const res = await fetch(`${API_BASE}/v1/upscale-tasks/${id}`)
         if (!res.ok) return
         const data = await res.json()
         if (data.status === 'done') {
@@ -218,11 +230,10 @@ export function UpscalerClient() {
           setStatus('done')
         } else if (data.status === 'failed') {
           stopPolling()
-          setErrorMsg(data.error || 'Upscaling failed. Please try again.')
+          const code = data.error
+          setErrorMsg(ERROR_MESSAGES[code] || code || 'Upscaling failed. Please try again.')
           setStatus('error')
-        } else if (data.status === 'pending' || data.status === 'queued') {
-          setStatus('processing')
-        } else if (data.status === 'processing') {
+        } else if (data.status === 'queued' || data.status === 'pending' || data.status === 'processing') {
           setStatus('processing')
         }
       } catch {
@@ -268,19 +279,20 @@ export function UpscalerClient() {
 
     const fd = new FormData()
     fd.append('image', file)
-    fd.append('feature', factor === '2x' ? 'upscale_2x' : 'upscale_4x')
+    fd.append('factor', factor === '2x' ? '2' : '4')
     fd.append('outputFormat', outputFormat)
     fd.append('outputQuality', String(Math.max(20, Math.min(99, quality))))
 
     try {
-      const res = await fetch(`${API_BASE}/v1/image`, {
+      const res = await fetch(`${API_BASE}/v1/upscale`, {
         method: 'POST',
         body: fd,
       })
 
       if (!res.ok) {
         const err = await res.json().catch(() => ({}))
-        throw new Error(err.message || err.error || `Server error ${res.status}`)
+        const code = err.error || err.code
+        throw new Error(ERROR_MESSAGES[code] || err.message || `Server error ${res.status}`)
       }
 
       const data = await res.json()
