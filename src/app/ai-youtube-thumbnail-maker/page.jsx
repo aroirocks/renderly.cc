@@ -452,17 +452,18 @@ export default function UploadPage() {
   const handleGenerate = async () => {
     if (files.length === 0) return
 
-    // Snapshot object URLs for the processing overlay before upload starts
+    // Build FormData first — before any state changes that unmount the file input
+    const fd = new FormData()
+    files.forEach((f) => fd.append('images[]', f, f.name))
+    fd.append('text', text.trim())
+
+    // Snapshot object URLs for the processing overlay
     const snapshotUrls = files.map((f) => URL.createObjectURL(f))
     setPreviews(snapshotUrls)
 
     processingDoneRef.current = false
     setStatus('uploading')
     setErrorMsg('')
-
-    const fd = new FormData()
-    files.forEach((f) => fd.append('images[]', f))
-    fd.append('text', text.trim())
 
     try {
       const res = await fetch(`${API_BASE}/v1/thumbnail`, {
