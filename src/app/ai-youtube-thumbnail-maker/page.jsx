@@ -461,8 +461,8 @@ export default function UploadPage() {
     setErrorMsg('')
 
     const fd = new FormData()
-    files.forEach((f) => fd.append('images', f))
-    if (text.trim()) fd.append('text', text.trim())
+    files.forEach((f) => fd.append('images[]', f))
+    fd.append('text', text.trim())
 
     try {
       const res = await fetch(`${API_BASE}/v1/thumbnail`, {
@@ -529,6 +529,7 @@ export default function UploadPage() {
 
   const isProcessing = status === 'uploading' || status === 'queued' || status === 'processing'
   const hasFiles = files.length > 0
+  const canGenerate = hasFiles && text.trim().length > 0
 
   return (
     <>
@@ -630,8 +631,9 @@ export default function UploadPage() {
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-slate-700">
                     Video title or topic{' '}
-                    <span className="font-normal text-slate-400">
-                      (this helps AI nail the composition)
+                    <span className="font-normal text-red-400">*</span>
+                    <span className="ml-1 font-normal text-slate-400">
+                      (used by AI to nail the composition)
                     </span>
                   </label>
                   <input
@@ -648,7 +650,7 @@ export default function UploadPage() {
                 <div className="flex flex-col items-center gap-3 pt-1">
                   <button
                     onClick={handleGenerate}
-                    disabled={!hasFiles}
+                    disabled={!canGenerate}
                     className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-red-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-red-500/20 transition hover:bg-red-600 active:bg-red-700 disabled:cursor-not-allowed disabled:opacity-40 sm:w-auto sm:px-10"
                   >
                     <UploadCloudIcon />
