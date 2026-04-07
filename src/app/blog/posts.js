@@ -2041,4 +2041,221 @@ export const posts = [
       },
     ],
   },
+  {
+    slug: 'how-to-take-passport-photo-at-home',
+    title: 'How to Take a Passport Photo at Home That Actually Gets Accepted',
+    date: '2026-04-07',
+    readTime: '5 min read',
+    excerpt:
+      "Most passport photo rejections come down to four things: shadows, wrong head size, bad background, or a crooked crop. All of them are avoidable with a phone and ten minutes.",
+    accent: 'from-sky-500 to-blue-600',
+    content: [
+      {
+        type: 'p',
+        text: "The drugstore charges $15–20 for two passport photos. The person behind the counter is usually not a photographer, the lighting is overhead fluorescent, and you get whatever you get. Taking your own at home takes about ten minutes and costs nothing — and the result is almost always better, because you control every variable.",
+      },
+      {
+        type: 'p',
+        text: "The tricky part isn't the photo itself. It's knowing what the acceptance spec actually requires so you can check your own work before submitting. Here's the full setup.",
+      },
+      {
+        type: 'h2',
+        text: 'The background',
+      },
+      {
+        type: 'p',
+        text: "White or off-white only. Not cream, not light grey, not beige — genuinely white. The easiest option: tape a piece of white printer paper or a white foam board to a wall. It doesn't need to be huge — just large enough that it fills the area behind your head and shoulders.",
+      },
+      {
+        type: 'p',
+        text: "Stand at least 60cm (2 feet) away from the background. This is the single most important thing most home photo attempts get wrong. If you stand too close to the background, your shadow falls directly onto it and creates a grey patch behind your head. Distance eliminates the shadow.",
+      },
+      {
+        type: 'h2',
+        text: 'Lighting',
+      },
+      {
+        type: 'p',
+        text: "Natural daylight is the best light source available to most people. Face a window directly — not at an angle, face it. The light should hit your face evenly from the front. Overcast days actually work better than direct sunshine, which creates harsh shadows.",
+      },
+      {
+        type: 'p',
+        text: "If you're shooting indoors at night, use two light sources on either side of your face at roughly eye level. A desk lamp on each side works. One lamp from above creates shadows under your eyes and nose that make photos look like mugshots.",
+      },
+      {
+        type: 'p',
+        text: "Turn off any overhead lights if you're using window light. Overhead and window light together create mixed shadows that are hard to fix.",
+      },
+      {
+        type: 'h2',
+        text: 'Camera setup',
+      },
+      {
+        type: 'p',
+        text: "Any modern smartphone is more than good enough. Use the rear camera, not the front-facing selfie camera — it has a better sensor and doesn't distort facial proportions the way wide-angle selfie lenses do.",
+      },
+      {
+        type: 'p',
+        text: "Set the phone on a stack of books or a tripod at eye level. Eye level is important — shooting from below makes your forehead look large, shooting from above makes your chin disappear. Eye level gives a neutral, accurate perspective.",
+      },
+      {
+        type: 'p',
+        text: "Use the timer. Press the shutter, step back, and let the camera take the photo on a 3-second delay. This eliminates camera shake and means you're looking straight ahead naturally instead of looking at the screen.",
+      },
+      {
+        type: 'h2',
+        text: 'Head position and expression',
+      },
+      {
+        type: 'p',
+        text: "Look directly at the camera lens — not the screen, the lens. Your face should be centred and squared to the camera, not turned at an angle. Both ears should be roughly visible.",
+      },
+      {
+        type: 'p',
+        text: "Neutral expression, mouth closed. No smiling. This is a US passport requirement and most other countries follow the same rule. Glasses are not permitted in US passport photos as of 2016. Remove them before taking the shot.",
+      },
+      {
+        type: 'h2',
+        text: 'Getting the head size right',
+      },
+      {
+        type: 'p',
+        text: "The US spec requires the head to be between 1 inch and 1 3/8 inches tall in the final 2×2 inch print — roughly 50–69% of the frame height. In practice: the top of your head should be just below the top of the frame, and your chin should be roughly a third of the way up from the bottom.",
+      },
+      {
+        type: 'p',
+        text: "Take the photo from about 1.5 metres (5 feet) away. This gives you enough of your upper body in frame to crop properly. Too close and you risk the head being too large; too far and the AI cropping tool has to enlarge the face, which reduces sharpness.",
+      },
+      {
+        type: 'cta',
+        text: 'Make a compliant passport photo free — AI crops and formats it automatically',
+        href: '/passport-photo-maker',
+      },
+      {
+        type: 'h2',
+        text: 'What the AI passport photo tool does',
+      },
+      {
+        type: 'p',
+        text: "Once you have a decent raw photo, the tool handles the rest: it detects your face, crops to the right head-size ratio, adds a clean white background if the original isn't perfect, and outputs a print-ready file at the correct 2×2 inch / 600×600px specification.",
+      },
+      {
+        type: 'p',
+        text: "The main thing the tool can't fix is shadow on the background or poor lighting on your face. Those have to be right in the photo itself — which is why the setup matters. Get those two things right and the AI handles everything else.",
+      },
+      {
+        type: 'h2',
+        text: 'Printing it',
+      },
+      {
+        type: 'p',
+        text: "Download the file and print it at any pharmacy or photo kiosk — Walgreens, CVS, Walmart Photo. Select 4×6 print size. You'll get two 2×2 passport photos on one 4×6 sheet, which is exactly what post offices and government offices require. Total cost: about $0.35.",
+      },
+      {
+        type: 'p',
+        text: "Some people also print at home on photo paper if they have a decent inkjet printer. That works too, as long as the paper is matte or glossy photo paper and not plain copy paper.",
+      },
+    ],
+  },
+  {
+    slug: 'product-background-color-guide',
+    title: 'The Background Color That Sells: A Guide for Product Sellers',
+    date: '2026-04-07',
+    readTime: '5 min read',
+    excerpt:
+      "White background isn't always the right answer. The background color behind your product changes how people perceive its price, quality, and whether they click at all.",
+    accent: 'from-violet-500 to-purple-600',
+    content: [
+      {
+        type: 'p',
+        text: "Most sellers default to white and move on. White is correct for Amazon main images. But white is not always correct for Instagram, Pinterest, Shopify storefronts, Facebook ads, or Etsy listings — and using it everywhere is leaving performance on the table.",
+      },
+      {
+        type: 'p',
+        text: "The background behind a product isn't neutral. It changes what the product looks like, what kind of brand you're communicating, and whether someone stops scrolling. Here's how to think about it.",
+      },
+      {
+        type: 'h2',
+        text: 'White: required for marketplaces, not always best elsewhere',
+      },
+      {
+        type: 'p',
+        text: "Amazon mandates a pure white background (#ffffff) for main product images, and eBay and Walmart Marketplace follow the same convention. This is not aesthetics — it's technical compliance. The automated listing checks reject images that fail this requirement.",
+      },
+      {
+        type: 'p',
+        text: "Outside of marketplaces, pure white can work against you. White on white is invisible — a white product on a white background loses all edge definition and looks flat. A light grey, a very pale warm tone, or a subtle shadow effect reads as white to the eye while giving the product visual separation from the background.",
+      },
+      {
+        type: 'p',
+        text: "For everything other than marketplace compliance, think of white as a starting point you can adjust, not a rule.",
+      },
+      {
+        type: 'h2',
+        text: 'Dark backgrounds: premium, fashion, tech',
+      },
+      {
+        type: 'p',
+        text: "Dark backgrounds — charcoal, near-black, deep navy — communicate premium quality. Electronics brands use them because dark backgrounds make screens glow and metals look cold and precise. Perfume and cosmetics brands use them because they convey luxury. Streetwear brands use them because they look editorial.",
+      },
+      {
+        type: 'p',
+        text: "If you're selling anything in the $100+ range and your market is style-conscious, dark backgrounds are worth testing. They consistently outperform white for perceived value in A/B tests in fashion and electronics. The trade-off: dark backgrounds make some products (dark-coloured items especially) harder to see clearly.",
+      },
+      {
+        type: 'cta',
+        text: 'Remove your background — then try any colour behind it',
+        href: '/remove-background',
+      },
+      {
+        type: 'h2',
+        text: 'Lifestyle and contextual backgrounds',
+      },
+      {
+        type: 'p',
+        text: "A lifestyle background places the product in its natural context — a skincare product on a marble bathroom shelf, a coffee mug on a wooden desk, a bag against a city wall. These work best for Instagram, Pinterest, and Shopify hero images because they help the viewer imagine owning the product.",
+      },
+      {
+        type: 'p',
+        text: "Lifestyle images consistently outperform isolated product shots for social ads. The product-in-context cue triggers imagination in a way that a plain-background shot doesn't. If you're running Meta or TikTok ads, lifestyle images typically get lower CPCs and higher CTRs than studio-style product shots.",
+      },
+      {
+        type: 'p',
+        text: "The practical workflow: shoot the product on white for the marketplace listing. Shoot or composite the same product into a lifestyle context for your ads and social. You can remove the white background after the fact and composite it into a scene — which is how smaller sellers get the look without a full lifestyle shoot.",
+      },
+      {
+        type: 'h2',
+        text: 'Color psychology by product category',
+      },
+      {
+        type: 'p',
+        text: "Some background colors have fairly consistent associations that hold up across categories. Green works for health, food, and outdoor products — it reads as natural and fresh. Blue works for tech and home goods — it reads as clean, trustworthy, and calm. Warm tones (terracotta, cream, soft peach) work for homewares, candles, and artisan goods — they read as handcrafted and warm. These aren't rules, but they're patterns worth testing against.",
+      },
+      {
+        type: 'p',
+        text: "What doesn't work: background colors that clash with the product. A red background behind an orange product creates visual vibration that makes the image uncomfortable to look at. The eye can't settle, and the viewer scrolls past. Background and product should either contrast clearly (light product, dark background or vice versa) or share a complementary color relationship.",
+      },
+      {
+        type: 'h2',
+        text: 'The practical workflow for product sellers',
+      },
+      {
+        type: 'p',
+        text: "Start by removing the background from your existing product photo. Once you have a transparent PNG, you can drop it onto any background color you want — in Canva, Photoshop, Google Slides, or any basic editor. This lets you test five different backgrounds from one product shot in about ten minutes.",
+      },
+      {
+        type: 'p',
+        text: "For Etsy and Shopify: test one image with a white or light background against one with a lifestyle or colored background. Most platforms give you impression and click data per image if you're paying attention to analytics. The difference in CTR between a good and bad background choice is often 30–60%, which is significant enough to be worth the ten minutes.",
+      },
+      {
+        type: 'p',
+        text: "The background isn't decoration. It's part of the signal the product sends before the viewer reads a single word of your listing.",
+      },
+      {
+        type: 'cta',
+        text: 'Remove your product background free — ready to drop onto any color',
+        href: '/remove-background',
+      },
+    ],
+  },
 ]
