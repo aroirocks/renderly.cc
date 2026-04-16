@@ -552,6 +552,9 @@ export default function UploadPage() {
               </span>{' '}
               in about a minute.
             </p>
+            <p className="mt-3 text-sm text-slate-400">
+              <span className="font-medium text-slate-500">Note:</span> AI-generated results may not always match your exact vision — the text overlay and image composition can vary. If the first result isn&apos;t quite right, generate again. Most creators get their best thumbnail on the second or third try.
+            </p>
           </div>
 
           <div className="mx-auto mt-12 max-w-2xl">

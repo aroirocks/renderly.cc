@@ -2258,4 +2258,159 @@ export const posts = [
       },
     ],
   },
+  {
+    slug: 'why-ai-thumbnails-dont-always-get-it-right-first-time',
+    title: 'Why AI Thumbnails Don\'t Always Get It Right First Time',
+    date: '2026-04-16',
+    readTime: '4 min read',
+    excerpt:
+      'AI image generation is powerful but imperfect. Understanding why the first result sometimes misses — and how a second attempt almost always fixes it.',
+    accent: 'from-amber-500 to-orange-500',
+    content: [
+      {
+        type: 'p',
+        text: "You upload two clean images, add a title, hit generate — and the result looks off. The text is in the wrong place, the face is partially cropped, or the composition just doesn't feel like your channel. This happens, and it's worth understanding why.",
+      },
+      {
+        type: 'h2',
+        text: 'AI generation is probabilistic, not deterministic',
+      },
+      {
+        type: 'p',
+        text: "Every AI image generation is a new draw from a probability distribution. The model doesn't produce the same output twice from the same input — it samples from a range of plausible outputs that fit your prompt and images. Most of those outputs are good. Some are great. A few are duds. That's the nature of the technology, not a bug in the tool.",
+      },
+      {
+        type: 'p',
+        text: "Text rendering is where AI still struggles most. Placing legible, well-positioned text on a thumbnail is harder for a model than composing the visual layout. If your title appears blurry, oddly placed, or missing entirely in the first attempt — this is the most common reason.",
+      },
+      {
+        type: 'h2',
+        text: 'What "wrong" usually looks like',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Text that is misspelled, misplaced, or not visible against the background',
+          'A face that is cut off or positioned awkwardly',
+          'The subject image used as background instead of foreground',
+          'A composition that looks generic rather than tailored to your video',
+          'Colors or contrast that don\'t match your channel\'s visual identity',
+        ],
+      },
+      {
+        type: 'p',
+        text: "None of these are permanent. They're sampling variance. The same inputs, run again, will produce a different composition — and in most cases, the second or third output lands in the good range.",
+      },
+      {
+        type: 'h2',
+        text: 'Why repetition fixes it',
+      },
+      {
+        type: 'p',
+        text: "Think of each generation as a roll of dice. One bad roll doesn't mean the dice are broken — it means you rolled once. Run it again and the probability of landing on a better output is the same as it was the first time. Across three attempts, the chance of getting at least one strong result is high.",
+      },
+      {
+        type: 'p',
+        text: "In practice: most creators who try again get a noticeably better result on the second attempt. The core composition — face placement, contrast, background balance — tends to stabilise across attempts even when the details vary.",
+      },
+      {
+        type: 'h2',
+        text: 'How to get more consistent results',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Use a clear, well-lit face photo with a simple background',
+          'Keep your video title short and specific — vague titles give the AI less to work with',
+          'Upload two images instead of one: a face plus a context image almost always outperforms one image alone',
+          'If text placement is the problem, try phrasing your title differently — shorter titles render more reliably',
+          'Generate at least twice before deciding the tool isn\'t working',
+        ],
+      },
+      {
+        type: 'p',
+        text: "AI is not a one-shot tool. It's a generator that rewards iteration. The creators who get the most value from it are the ones who treat the first result as a draft, not a final answer.",
+      },
+      {
+        type: 'cta',
+        text: 'Generate your thumbnail — try again if the first one misses',
+        href: '/ai-youtube-thumbnail-maker',
+      },
+    ],
+  },
+  {
+    slug: 'how-many-times-should-you-regenerate-an-ai-thumbnail',
+    title: 'How Many Times Should You Regenerate an AI Thumbnail?',
+    date: '2026-04-16',
+    readTime: '3 min read',
+    excerpt:
+      'One attempt is rarely enough. Here\'s a practical guide to knowing when to regenerate, when to adjust your inputs, and when to move on.',
+    accent: 'from-sky-500 to-blue-600',
+    content: [
+      {
+        type: 'p',
+        text: "The most common mistake creators make with AI thumbnail tools is treating the first output as the verdict. If it looks wrong, they assume the tool doesn't work for them. In practice, one generation is just one attempt — and AI tools reward the people who try more than once.",
+      },
+      {
+        type: 'h2',
+        text: 'The three-attempt rule',
+      },
+      {
+        type: 'p',
+        text: "Don't judge the tool on one result. Generate at least three times before changing your inputs or giving up. Across three attempts, the quality distribution is broad enough that you're very likely to land on at least one output that works. Most people find their best result on attempt two or three.",
+      },
+      {
+        type: 'h2',
+        text: 'When to change your inputs instead',
+      },
+      {
+        type: 'p',
+        text: "If you've generated three times and all three results have the same problem — say, the face is consistently cropped wrong — that's a signal to change the input image, not just regenerate. The AI is working with what you give it. A consistently bad result from good inputs is rare. A consistently bad result from a low-quality input is expected.",
+      },
+      {
+        type: 'ul',
+        items: [
+          'Face always cropped: try a photo where you\'re more centred in the frame',
+          'Text always illegible: shorten your video title to under 8 words',
+          'Composition always feels generic: add a second image to give the AI more material',
+          'Result never matches your topic: make your title more specific about the video content',
+        ],
+      },
+      {
+        type: 'h2',
+        text: 'What repetition actually does',
+      },
+      {
+        type: 'p',
+        text: "Each generation samples a different output from the same set of possibilities. The inputs set the boundaries of what's possible — the quality of your photos, the clarity of your title. Within those boundaries, each generation is an independent draw. You're not wearing the tool down or getting diminishing returns. Generation five is just as likely to be your best as generation one.",
+      },
+      {
+        type: 'p',
+        text: "This is different from how most design software works, where you make a change and see the result of that specific change. With AI generation, you're sampling, not editing. The right mental model is: keep sampling until you find one worth using.",
+      },
+      {
+        type: 'h2',
+        text: 'Practical workflow',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Generate once and assess — is the core composition right?',
+          'If yes but details are off: regenerate 1–2 more times',
+          'If no: adjust your input (image quality, title wording, add a second image) then regenerate',
+          'Pick the best result across all attempts — you\'re curating, not iterating',
+          'If none of three attempts work: treat it as an input problem, not a tool problem',
+        ],
+      },
+      {
+        type: 'p',
+        text: "AI isn't magic and it isn't broken. It's a probabilistic tool that responds to quality inputs and rewards patience. Give it three chances with good material and you'll almost always walk away with something usable.",
+      },
+      {
+        type: 'cta',
+        text: 'Generate your thumbnail free — as many times as you need',
+        href: '/ai-youtube-thumbnail-maker',
+      },
+    ],
+  },
 ]
